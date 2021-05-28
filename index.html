@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Euclid Algorithm Gcd</title>
+</head>
+<style>
+body {
+    background-color: whitesmoke;
+}
+
+#container_div{
+    width: 50%; 
+    height: 40vh; 
+    margin-top: 12%; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+#name_of_algorithm {
+    text-align: center; 
+    font-size: 45px; 
+    margin-top: 10px;
+    font-family: cursive;
+}
+
+#find_gcd {
+    width: 15%; 
+    height: 7vh;  
+    margin-left: 55%;
+    margin-top: 10px; 
+}
+
+#height_input {
+    width: 15%;
+    font-size: 20px; 
+    text-align: center; 
+    height: 7vh;  
+    margin-left: 35%;
+}
+
+#width_input{
+    width: 15%; 
+    height: 7vh;
+    font-size: 20px; 
+    text-align: center;   
+    margin-left: 3%;
+}
+
+#gcd_answer_div {
+    margin-left: 25%; 
+    font-size: 30px; 
+    display: none
+}
+</style>
+<body>
+
+<div id="container_div">
+    <h3 id="name_of_algorithm">Eculid Algorithm Finding The Greatest Common Divisor</h3>
+
+    <div style="display: flex;">
+        <input id="height_input" type="number" placeholder ="Height">
+        <input id="width_input" type="number" placeholder ="Width">
+    </div>
+    <button onclick="gcd()" id="find_gcd">GCD Result</button>
+       
+    <h3 id="gcd_answer_div">Greatest Common Divisor Is   <span id="answer_for_gcd" style="color: red"></span></h3>
+</div>
+
+<script>
+    function gcd(height, width) {
+        let height_input = document.getElementById("height_input").value;
+        let width_input = document.getElementById("width_input").value;
+
+        let find_gcd = document.getElementById("find_gcd").value;
+        let answer_for_gcd = document.getElementById("answer_for_gcd");
+        let text_answer = document.getElementById("gcd_answer_div").style = "display: block; margin-top: 15px;  margin-left: 27%; font-size: 25px; font_family: cursive";
+        height = height_input;
+        width = width_input;
+
+        let result_of_gcd;
+
+        while (height % width) 
+        {
+            result_of_gcd = height % width;
+            height = width;
+            width = result_of_gcd;
+        }
+
+        answer_for_gcd.innerHTML = width;  
+    }
+</script>
+</body>
+</html>
